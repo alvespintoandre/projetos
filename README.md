@@ -63,6 +63,8 @@ Somente **ADMIN** (HTTP Basic). Corpo JSON usa `role`: `USER` ou `ADMIN`.
 
 ## Swagger / OpenAPI (documentação interativa)
 
+URL para testes: https://projetos-nmue.onrender.com/swagger-ui/index.html (user: admin, senha: admin123)
+
 Com a aplicação rodando (porta padrão **8080**), abra no navegador:
 
 | O quê | URL (local) |

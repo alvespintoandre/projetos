@@ -30,7 +30,7 @@ public class SecurityConfig {
                                 "/actuator/health",
                                 "/actuator/health/**"
                         ).permitAll()
-                        .requestMatchers("/api/admin/**", "/api/externo/**").hasRole("ADMIN")
+                        .requestMatchers("/api/admin/**", "/api/externo/**", "/api/projetos/**", "/api/relatorios/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
