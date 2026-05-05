@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: portfolio-projetos
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:pg-ac98315-andrealvesdeveloper.g.aivencloud.com}:${DB_PORT:26375}/${DB_NAME:defaultdb}?sslmode=${DB_SSLMODE:require}
+    username: ${DB_USER:avnadmin}
+    password: ${DB_PASSWORD:${AIVEN_DB_PASSWORD:}}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: ${HIKARI_MAX_POOL_SIZE:3}
+      minimum-idle: ${HIKARI_MIN_IDLE:1}
+      connection-timeout: ${HIKARI_CONNECTION_TIMEOUT_MS:30000}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+
+server:
+  address: ${SERVER_ADDRESS:0.0.0.0}
+  port: ${PORT:${SERVER_PORT:8080}}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  security:
+    bootstrap:
+      admin-username: ${APP_USER:admin}
+      admin-password: ${APP_PASSWORD:admin123}
